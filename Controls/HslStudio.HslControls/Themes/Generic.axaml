@@ -1,0 +1,55 @@
+<Styles xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					  xmlns:local="using:HslStudio.HslControls"
+					  xmlns:localConverter="using:HslStudio.HMIControls.Converter"
+					>
+
+	<Styles.Resources>
+		<localConverter:ColorLightConverter x:Key="colorLightConverter"/>
+	</Styles.Resources>
+	<Design.PreviewWith>
+		<local:LedSingle />
+	</Design.PreviewWith>
+    <!-- Add Resources Here -->
+	
+	<Style Selector="local|LedSingle">
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Viewbox>
+					<Canvas Height="100" Width="100">
+						<!--Step 1-->
+						<Ellipse Canvas.Left="0" Canvas.Top="0" Width="100" Height="100" StrokeThickness="0.5" Stroke="Gray" >
+							<Ellipse.Fill>
+								<LinearGradientBrush  StartPoint="50%,100%" EndPoint="100%,0%" SpreadMethod="Pad">
+									<GradientStop Color="#FF071923" Offset="0" />
+									<GradientStop Color="White" Offset="1" />
+								</LinearGradientBrush>
+							</Ellipse.Fill>
+						</Ellipse>
+						<!--Step 2-->
+						<Ellipse Canvas.Left="7.25" Canvas.Top="7.25" Width="85" Height="85" StrokeThickness="0.5" Stroke="Gray" >
+							<Ellipse.Fill>
+								<LinearGradientBrush  StartPoint="100%,50%" EndPoint="0%,100%" SpreadMethod="Pad">
+									<GradientStop Color="#FF071923" Offset="0" />
+									<GradientStop Color="White" Offset="1.2" />
+								</LinearGradientBrush>
+							</Ellipse.Fill>
+						</Ellipse>
+						<!--Step 3-->
+						<Ellipse  Canvas.Left="12.25" Canvas.Top="12.25" Width="75" Height="75" StrokeThickness="0.5" Stroke="Black" >
+							<Ellipse.Fill>
+								<RadialGradientBrush Center="0.6,0.35" GradientOrigin="0.6,0.35" Radius="0.67">
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OnColor, Converter={StaticResource colorLightConverter},ConverterParameter=50}" Offset="0" />
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OnColor}" Offset="1" />
+								</RadialGradientBrush>
+							</Ellipse.Fill>
+						</Ellipse>
+
+					</Canvas>
+				</Viewbox>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+	
+</Styles>

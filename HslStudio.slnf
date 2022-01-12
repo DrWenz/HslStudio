@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "path": "App\\HslStudio.Scada\\HslStudio.sln",
+    "projects": [
+      "HslStudio.Scada.NetCore\\HslStudio.Scada.NetCore.csproj",
+      "HslStudio.Scada.Web\\HslStudio.Scada.Web.csproj",
+      "HslStudio.Scada\\HslStudio.Scada.csproj"
+    ]
+  }
+}
