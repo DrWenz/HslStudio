@@ -3,7 +3,6 @@
 		xmlns:local="using:HslStudio.HslControls.Feed"
 		xmlns:localConverter="using:HslStudio.HMIControls.Converter"
 		>
-		>
     <Design.PreviewWith>
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
@@ -13,8 +12,8 @@
 
     <!-- Add Styles Here -->
 
-	<Style Selector="local|Cylinder">
-		<!-- Set Defaults -->
+	<!--<Style Selector="local|Cylinder">
+		--><!-- Set Defaults --><!--
 		<Setter Property="Foreground" Value="Gray" />
 		<Setter Property="BorderBrush" Value="White" />
 		<Setter Property="Width" Value="20" />
@@ -30,5 +29,5 @@
 	<Style Selector="local|Cylinder:alarm">
 
 		<Setter Property="Foreground" Value="Orange" />
-	</Style>
+	</Style>-->
 </Styles>

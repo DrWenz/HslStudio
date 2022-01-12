@@ -22,6 +22,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Controls\Converter\HslStudio.HMIControls.Converter\HslStudio.HMIControls.Converter.csproj" />
+    <ProjectReference Include="..\..\..\Controls\HslStudio.HslControls.Feed\HslStudio.HslControls.Feed.csproj" />
     <ProjectReference Include="..\..\..\Controls\HslStudio.HslControls\HslStudio.HslControls.csproj" />
   </ItemGroup>
 </Project>
