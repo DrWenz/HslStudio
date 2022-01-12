@@ -14,7 +14,7 @@
 
 	<!--<local:LedSingle Height="100" Width="100" OnColor="blue"   HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
 
-	<Grid  Height="80" Width="200">
+	<!--<Grid  Height="80" Width="200">
 		<Path  Data="M0.25,0.25 L24.789,0.25 L24.789,8.166 L0.25,8.166 z" HorizontalAlignment="Stretch" Margin="18.2,11.427,57.724,10.097" Stretch="Fill" Stroke="Black" StrokeThickness="0.5" Width="Auto" RenderTransformOrigin="0.5,0.5" Canvas.ZIndex="1">
 			<Path.RenderTransform>
 				<TransformGroup>
@@ -103,5 +103,5 @@
 				</LinearGradientBrush>
 			</Path.Fill>
 		</Path>
-	</Grid>
+	</Grid>-->
 </UserControl>

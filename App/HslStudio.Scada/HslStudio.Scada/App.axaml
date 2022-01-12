@@ -12,5 +12,6 @@
     <Application.Styles>
         <FluentTheme Mode="Dark"/>
 		<StyleInclude Source="avares://HslStudio.HslControls/Themes/Generic.axaml" />
+		<StyleInclude Source="avares://HslStudio.HslControls.Feed/Themes/Generic.axaml" />
     </Application.Styles>
 </Application>
