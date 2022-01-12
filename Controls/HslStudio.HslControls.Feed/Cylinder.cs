@@ -4,7 +4,7 @@ using Avalonia.Input;
 
 namespace HslStudio.HslControls.Feed
 {
-    public  class Cylinder:Control
+    public  class Cylinder: ToggleButton
     {
         private bool _isAlarmOn;
         protected override void OnPointerPressed(PointerPressedEventArgs e)
