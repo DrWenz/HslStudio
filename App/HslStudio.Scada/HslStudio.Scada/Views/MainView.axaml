@@ -3,7 +3,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:HslStudio.Scada.ViewModels"
-			 xmlns:local="using:HslStudio.HslControls.Feed"
+			 xmlns:local="using:HslStudio.HslControls"
+			 xmlns:localFeed="using:HslStudio.HslControls.Feed"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="HslStudio.Scada.Views.MainView"
              Foreground="White"
@@ -11,10 +12,12 @@
   <Design.DataContext>
     <viewModels:MainViewModel />
   </Design.DataContext>
-	<Viewbox>
-		<local:Cylinder Height="100" Width="100"    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<StackPanel>
+		<local:LedSingle Height="100" Width="100" OnColor="green" LedStyle="Circle"/>
+		<local:LedSingle Height="100" Width="100" OnColor="green" LedStyle="Rectangle" Value="True"/>
+		<local:LedSingle Height="100" Width="100" OnColor="green" LedStyle="Triangle" Value="True"/>
 
-	</Viewbox>
+	</StackPanel>
 	 
 	
 	 

@@ -8,11 +8,11 @@
 		<localConverter:ColorLightConverter x:Key="colorLightConverter"/>
 	</Styles.Resources>
 	<Design.PreviewWith>
-		<local:LedSingle />
+		<local:LedSingle LedStyle="RoundedSides" />
 	</Design.PreviewWith>
-    <!-- Add Resources Here -->
-	
-	<Style Selector="local|LedSingle">
+	<!-- Add Resources Here -->
+
+	<Style Selector="local|LedSingle[LedStyle=Circle]">
 		<!-- Set Defaults -->
 		<Setter Property="Template">
 			<ControlTemplate>
@@ -37,11 +37,11 @@
 							</Ellipse.Fill>
 						</Ellipse>
 						<!--Step 3-->
-						<Ellipse  Canvas.Left="12.25" Canvas.Top="12.25" Width="75" Height="75" StrokeThickness="0.5" Stroke="Black" >
+						<Ellipse  Name="xBackground" Canvas.Left="12.25" Canvas.Top="12.25" Width="75" Height="75" StrokeThickness="0.5" Stroke="Black" >
 							<Ellipse.Fill>
 								<RadialGradientBrush Center="0.6,0.35" GradientOrigin="0.6,0.35" Radius="0.67">
-									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OnColor, Converter={StaticResource colorLightConverter},ConverterParameter=50}" Offset="0" />
-									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OnColor}" Offset="1" />
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OffColor, Converter={StaticResource colorLightConverter},ConverterParameter=50}" Offset="0" />
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OffColor}" Offset="1" />
 								</RadialGradientBrush>
 							</Ellipse.Fill>
 						</Ellipse>
@@ -51,5 +51,135 @@
 			</ControlTemplate>
 		</Setter>
 	</Style>
-	
+
+	<Style Selector="local|LedSingle[LedStyle=Rectangle]">
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Viewbox>
+					<Canvas Height=" 40" Width="100">
+						<!--Step1-->
+						<Rectangle Canvas.Left="0" Canvas.Top=" 0" Height="40" Width="100" StrokeThickness="0.5" Stroke="Gray">
+							<Rectangle.Fill>
+								<LinearGradientBrush  StartPoint="0.5%,100%" EndPoint="100%,0%" SpreadMethod="Pad">
+									<GradientStop Color="#FF071923" Offset="0" />
+									<GradientStop Color="White" Offset="1.2" />
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<!--Step2-->
+						<Rectangle Canvas.Left="2" Canvas.Top="2" Height="36" Width="96" StrokeThickness="0.5" Stroke="DarkGray">
+							<Rectangle.Fill>
+								<LinearGradientBrush  StartPoint="100%,0.5%" EndPoint="0%,100%" SpreadMethod="Pad">
+									<GradientStop Color="#FF071923" Offset="0" />
+									<GradientStop Color="White" Offset="1.2" />
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<!--Step3-->
+						<Rectangle Name="xBackground"  Canvas.Left="5" Canvas.Top="5" Height="30" Width="90" StrokeThickness="0.5" Stroke="Black">
+							<Rectangle.Fill>
+								<RadialGradientBrush Center="0.6,0.35" GradientOrigin="0.6,0.35" Radius="0.67">
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OffColor, Converter={StaticResource colorLightConverter},ConverterParameter=50}" Offset="0" />
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OffColor}" Offset="1" />
+								</RadialGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+					</Canvas>
+
+				</Viewbox>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+	<!--<Style Selector="local|LedSingle :pressed">
+		<Setter Property="xBackground.Fill">
+			<Setter.Value>
+				<RadialGradientBrush Center="0.6,0.35" GradientOrigin="0.6,0.35" Radius="0.67">
+					<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OnColor, Converter={StaticResource colorLightConverter},ConverterParameter=50}" Offset="0" />
+					<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OnColor}" Offset="1" />
+				</RadialGradientBrush>
+
+			</Setter.Value>
+		</Setter>
+	</Style>-->
+	<Style Selector="local|LedSingle:alarm">
+		<Setter Property="OffColor" Value="green"/>
+	</Style>
+	<Style Selector="local|LedSingle[LedStyle=RoundedSides]">
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Viewbox>
+					<Canvas Height=" 40" Width="100">
+						<!--Step1-->
+						<Border Canvas.Left="0" Canvas.Top=" 0" Height="40" Width="100" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="5">
+							<Border.Background>
+								<LinearGradientBrush  StartPoint="0.5%,100%" EndPoint="100%,0%" SpreadMethod="Pad">
+									<GradientStop Color="#FF071923" Offset="0" />
+									<GradientStop Color="White" Offset="1.2" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+						<!--Step2-->
+						<Border Canvas.Left="2" Canvas.Top="2" Height="36" Width="96" BorderThickness="0.5" BorderBrush="DarkGray" CornerRadius="3.5">
+							<Border.Background>
+								<LinearGradientBrush  StartPoint="100%,0.5%" EndPoint="0%,100%" SpreadMethod="Pad">
+									<GradientStop Color="#FF071923" Offset="0" />
+									<GradientStop Color="White" Offset="1.2" />
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+						<!--Step3-->
+						<Border Name="xBackground"  Canvas.Left="5" Canvas.Top="5" Height="30" Width="90" BorderThickness="0.5" BorderBrush="Black" CornerRadius="3">
+							<Border.Background>
+								<RadialGradientBrush Center="0.6,0.35" GradientOrigin="0.6,0.35" Radius="0.67">
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OffColor, Converter={StaticResource colorLightConverter},ConverterParameter=50}" Offset="0" />
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OffColor}" Offset="1" />
+								</RadialGradientBrush>
+							</Border.Background>
+						</Border>
+					</Canvas>
+
+				</Viewbox>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+	<Style Selector="local|LedSingle[LedStyle=Triangle]">
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Viewbox>
+					<Canvas  Width="160" Height="140">
+						<Path x:Name="Path" Width="160" Height="140" Canvas.Left="0" Canvas.Top="0" Stretch="Fill" StrokeThickness="0.5" Stroke="Gray"  Data="M 161.388,139.01L 80.6941,1.52588e-005L 0,139.01L 161.388,139.01 Z ">
+							<Path.Fill>
+								<LinearGradientBrush  StartPoint="0.5%,100%" EndPoint="100%,0%" SpreadMethod="Pad">
+									<GradientStop Color="#FF071923" Offset="0" />
+									<GradientStop Color="White" Offset="1.2" />
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path x:Name="Path2" Canvas.Left="10" Canvas.Top="10" Width="140" Height="125" Stretch="Fill" StrokeThickness="0.5" Stroke="DarkGray"  Data="M 161.388,139.01L 80.6941,1.52588e-005L 0,139.01L 161.388,139.01 Z " >
+							<Path.Fill>
+								<LinearGradientBrush  StartPoint="100%,0.5%" EndPoint="0%,100%" SpreadMethod="Pad">
+									<GradientStop Color="#FF071923" Offset="0" />
+									<GradientStop Color="White" Offset="1.2" />
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path x:Name="xBackground" Canvas.Left="17" Canvas.Top="19.5" Width="125" Height="110" Stretch="Fill" StrokeThickness="0.5" Stroke="DarkGray"  Data="M 161.388,139.01L 80.6941,1.52588e-005L 0,139.01L 161.388,139.01 Z ">
+							<Path.Fill>
+								<RadialGradientBrush Center="0.6,0.35" GradientOrigin="0.6,0.35" Radius="0.67">
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OnColor, Converter={StaticResource colorLightConverter},ConverterParameter=50}" Offset="0" />
+									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OffColor}" Offset="1" />
+								</RadialGradientBrush>
+
+							</Path.Fill>
+						</Path>
+					</Canvas>
+				</Viewbox>
+
+			</ControlTemplate>
+		</Setter>
+	</Style>
 </Styles>
