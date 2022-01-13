@@ -77,7 +77,7 @@
 							</Rectangle.Fill>
 						</Rectangle>
 						<!--Step3-->
-						<Rectangle Name="xBackground"  Canvas.Left="5" Canvas.Top="5" Height="30" Width="90" StrokeThickness="0.5" Stroke="Black">
+						<Rectangle x:Name="xBackground"  Canvas.Left="5" Canvas.Top="5" Height="30" Width="90" StrokeThickness="0.5" Stroke="Black">
 							<Rectangle.Fill>
 								<RadialGradientBrush Center="0.6,0.35" GradientOrigin="0.6,0.35" Radius="0.67">
 									<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OffColor, Converter={StaticResource colorLightConverter},ConverterParameter=50}" Offset="0" />
@@ -91,8 +91,8 @@
 			</ControlTemplate>
 		</Setter>
 	</Style>
-	<!--<Style Selector="local|LedSingle :pressed">
-		<Setter Property="xBackground.Fill">
+	<Style Selector="local|LedSingle:alarm  /template/ Viewbox > Canvas >  Rectangle#xBackground">
+		<Setter Property="Fill">
 			<Setter.Value>
 				<RadialGradientBrush Center="0.6,0.35" GradientOrigin="0.6,0.35" Radius="0.67">
 					<GradientStop Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:LedSingle}},Path=OnColor, Converter={StaticResource colorLightConverter},ConverterParameter=50}" Offset="0" />
@@ -101,7 +101,7 @@
 
 			</Setter.Value>
 		</Setter>
-	</Style>-->
+	</Style>
 	<Style Selector="local|LedSingle:alarm">
 		<Setter Property="OffColor" Value="green"/>
 	</Style>

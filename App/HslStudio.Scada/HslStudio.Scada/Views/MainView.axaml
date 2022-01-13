@@ -12,7 +12,7 @@
   <Design.DataContext>
     <viewModels:MainViewModel />
   </Design.DataContext>
-	<StackPanel>
+	<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
 		<local:LedSingle Height="100" Width="100" OnColor="green" LedStyle="Circle"/>
 		<local:LedSingle Height="100" Width="100" OnColor="green" LedStyle="Rectangle" Value="True"/>
 		<local:LedSingle Height="100" Width="100" OnColor="green" LedStyle="Triangle" Value="True"/>
